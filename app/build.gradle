@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -9,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
         externalNativeBuild {
             cmake {
                 cppFlags ""
@@ -26,6 +28,11 @@ android {
             path "src/main/cpp/CMakeLists.txt"
         }
     }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -35,4 +42,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.github.andriydruk:dnssd:0.9.11'
+    implementation 'com.github.andriydruk:rxdnssd:0.9.11'
+    implementation 'com.github.andriydruk:rx2dnssd:0.9.11'
 }
